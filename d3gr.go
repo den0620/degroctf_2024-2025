@@ -84,7 +84,7 @@ func initialModel() Model {
 		selectedIngr:   0,
 		mode:           Normal,
 		textInput:      ti,
-		clientRequest:  "I need something that'll pass my math session...",
+		clientRequest:  "I need something that'll help me pass my math exams...",
 		secretRecipe:   secretRecipe,
 		servedCorrect:  false,
 		ingredientList: ingredients,
@@ -163,7 +163,13 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					
 					if correct {
 						m.servedCorrect = true
-						m.message = "Perfect! degro_yk_wo_they_do_2_guys_like_us_in_s3sc"
+						magicbytes := []byte{
+							0x64, 0x65, 0x67, 0x72, 0x6f, 0x5f, 0x79, 0x6b, 0x5f, 0x77, 0x6f,
+							0x5f, 0x74, 0x68, 0x65, 0x79, 0x5f, 0x64, 0x6f, 0x5f, 0x32, 0x5f,
+							0x67, 0x75, 0x79, 0x73, 0x5f, 0x6c, 0x69, 0x6b, 0x65, 0x5f, 0x75,
+							0x73, 0x5f, 0x69, 0x6e, 0x5f, 0x73, 0x33, 0x73, 0x63,
+						}
+						m.message = "Perfect! " + string(magicbytes)
 					} else {
 						m.message = "That's not what I wanted!"
 					}
@@ -235,8 +241,8 @@ func (m Model) View() string {
 			amountStr := strings.Repeat("█", amount) + strings.Repeat("░", 10-amount)
 			
 			if i == m.selectedIngr && m.mode == Normal {
-				line = selectedStyle.Render(fmt.Sprintf("> %-*s %-*s [%*d]", 
-					ingrWidth-2, ingr, 
+				line = selectedStyle.Render(fmt.Sprintf(">  %-*s %-*s [%*d]", 
+					ingrWidth-1, ingr, 
 					barWidth, amountStr, 
 					amountWidth-3, amount))
 			} else {
