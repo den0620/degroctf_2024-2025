@@ -53,7 +53,7 @@
 
 `degro_yk_wo_they_do_2_guys_like_us_in_s3sc`
 
-## [***.] ... (PPC 400) [lukramancer]
+## [***.] loudy fish (PPC 400) [lukramancer]
 
 Кричащая рыба:
 
@@ -62,6 +62,21 @@
 Сервер `task.py`
 
 Решалка `solve.py`
+
+`nc ip port`:
+
+```
+
++-----------------+        
+|   morse_state   |        
++-----------------+        
+                   \       
+                    <0)))><
+```
+
+morse_state меняется между `SCREAMING` и `/SILENCE/`
+
+Я без понятия как там у него сделано dot/dash но вроде работает, бедничи разберутся
 
 ## [**..] Негодяй (Stega 300) [ninefid]
 
