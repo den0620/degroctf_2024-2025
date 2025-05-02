@@ -76,7 +76,9 @@
 
 morse_state меняется между `SCREAMING` и `/SILENCE/`
 
-Я без понятия как там у него сделано dot/dash но вроде работает, бедничи разберутся
+Я без понятия как там у него сделано dot/dash, но работает
+
+`DEGRO FISH SPEAK UPTO YOU` -> `degro_fish_speak_upto_you`
 
 ## [**..] Негодяй (Stega 300) [ninefid]
 
