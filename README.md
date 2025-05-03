@@ -4,7 +4,7 @@
 
 ### Все таски могут быть в разной мере охарактеризованы *уцуцугами*
 
-## [****] D3GR 4LL-A: Uwutism Action (Rev 500) [ninefid]
+## [****] D3GR 4LL-A: Uwutism Action (Rev 500) [ninefid] [x|x|_]
 
 Кажется, у вас имеется проблема с варонавыком
 
@@ -48,21 +48,15 @@
 
 `degro_yk_wo_they_do_2_guys_like_us_in_s3sc`
 
-## [***.] loudy fish (PPC 400) [lukramancer]
+## [***.] loudy fish (PPC 400) [lukramancer] [x|_|_]
 
 Here's a fish on the line and it is screaming for some times. Understand what it is saying.
+
+`nc ip port`
 
 ### Решение:
 
 Кричащая рыба:
-
-Общая либа `morse.py`
-
-Сервер `task.py`
-
-Решалка `solve.py`
-
-`nc ip port`:
 
 ```
 
@@ -77,9 +71,15 @@ Here's a fish on the line and it is screaming for some times. Understand what it
 
 Я без понятия как там у него сделано dot/dash, но работает
 
-`DEGRO FISH SPEAK UPTO YOU , ` (повтор) -> `degro_fish_speak_upto_you`
+`DEGRO FISH SPEAK UPTO YOU , ` [повтор] -> `degro_fish_speak_upto_you`
 
-## [**..] Gorbusha in rc Shell (CTB 300) [ninefid]
+Общая либа [mosre.py](loudyfish/morse.py)
+
+Сервер [task.py](loudyfish/task.py)
+
+Авторский солвер (на общей либе) [solve.py](loudyfish/solve.py)
+
+## [**..] Gorbusha in rc Shell (CTB 300) [ninefid] [x|x|_]
 
 Попадите в Section 9, выберитесь, и найдите флаг
 
@@ -105,19 +105,25 @@ cd /proc/1/root
 
 И мы попадаем в / уже алпайна, где есть /flag.txt
 
-`degro_`
+`degro_th3y_st1ll_avoid_plan9`
 
-## [**..] Негодяй (Stega 200) [ninefid]
+[docker-compose.yml](GirS/docker-compose.yml)
+
+[Dockerfile](GirS/Dockerfile)
+
+[START.sh](GirS/START.sh)
+
+## [**..] Негодяй (Stega 200) [ninefid] [0|0|0]
 
 Флаг в картинку бед драгон дилдо
 
-## [**..] Потому что вы УВОЛЕНЫ (Web 200) [medovsq + alinarrg -> ninefid]
+## [**..] Потому что вы УВОЛЕНЫ (Web 200) [medovsq + alinarrg -> ninefid] [0|0|0]
 
 Взять залупу с безумхака и доделать ее
 
 На странице регистрации (или где-то) будет iframe вставка но url будет содержать креды пользователя (потому что вход через параметры) и в его чатах будет чат с флагом
 
-## [*...] СЫР-8 был ошибкой (Foren 100) [ninefid]
+## [*...] СЫР-8 был ошибкой (Stega 100) [ninefid] [x|x|_]
 
 ### Флаг внутри UTF-8 емодзи
 
@@ -125,7 +131,7 @@ cd /proc/1/root
 
 https://emoji.paulbutler.org/?mode=decode
 
-Перевод на [питончик](syr_sosal.py)
+Перевод на [питончик](syr_sosal/syr_sosal.py)
 
 `degro_americans_be_eating_cheesed_burghas`
 
