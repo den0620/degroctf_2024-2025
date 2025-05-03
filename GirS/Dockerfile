@@ -8,7 +8,7 @@ RUN mkdir /usr/lib/plan9/srv
 RUN mkdir /usr/lib/plan9/tmp && chown 1777 /usr/lib/plan9/tmp
 
 # Create flag
-RUN echo "degro_example_wip_flag" > /flag.txt && chmod 444 /flag.txt && \
+RUN echo "degro_th3y_st1ll_avoid_plan9\nбез флагошера" > /flag.txt && chmod 444 /flag.txt && \
     chown root:root /flag.txt
 
 # Copy essentials
