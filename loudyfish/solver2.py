@@ -5,18 +5,24 @@ from morse import INTERNATIONAL_MORSE_CODES
 import socket
 
 
-HOST = "193.23.219.72"
+HOST = "s.selfre.cc"
 PORT = 9998
 
-IMAGE_LENGTH = 1024
+IMAGE_LENGTH = 386
+
+
+READ_LENGTH: int = 1024
 
 bits_sequence: str = str()
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
     for bit in range(IMAGE_LENGTH):
-        data = s.recv(1024).decode("utf-8")
-        bits_sequence = bits_sequence + ('1' if data.count('\a') > 0 else '0')
+        data = s.recv(READ_LENGTH).decode("utf-8")
+        print(data.strip().split("><"))
+        for fish_state in data.strip().split("><")[:-1]:
+            # print(fish_state.count('0'), fish_state.count('\a'))
+            bits_sequence = bits_sequence + ('1' if fish_state.count('\a') > 0 else '0')
 
 
 def decode_bits(bits):
@@ -89,3 +95,4 @@ morse_code = decode_bits(bits_sequence)
 print(morse_code)
 decoded_message = decode_morse(morse_code)
 print(decoded_message)
+

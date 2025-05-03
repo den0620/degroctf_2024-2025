@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DegroCTF 2024-2025</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #e2e8f0;
+            --accent-color: #6366f1;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+            --highlight: #f59e0b;
+            --difficulty-4: #ef4444;
+            --difficulty-3: #f97316;
+            --difficulty-2: #eab308;
+            --difficulty-1: #22c55e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            margin-bottom: 2rem;
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--accent-color), var(--highlight));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        .info {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        
+        .challenges {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .challenge-card {
+            background-color: var(--card-bg);
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .challenge-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .challenge-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        .challenge-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .difficulty {
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+        
+        .difficulty-4 {
+            color: var(--difficulty-4);
+        }
+        
+        .difficulty-3 {
+            color: var(--difficulty-3);
+        }
+        
+        .difficulty-2 {
+            color: var(--difficulty-2);
+        }
+        
+        .difficulty-1 {
+            color: var(--difficulty-1);
+        }
+        
+        .challenge-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+        
+        .challenge-category {
+            padding: 0.25rem 0.5rem;
+            background-color: var(--accent-color);
+            border-radius: 0.25rem;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        
+        .challenge-description {
+            margin-bottom: 1rem;
+            white-space: pre-wrap;
+        }
+        
+        code, pre {
+            font-family: "Fira Code", "Cascadia Code", monospace;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        pre {
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .status-badges {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .status-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .badge-working {
+            background-color: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+        }
+        
+        .badge-not-working {
+            background-color: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+        
+        .badge-pending {
+            background-color: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+        
+        .leaderboard {
+            margin-top: 3rem;
+        }
+        
+        .leaderboard-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .leaderboard-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .leaderboard-table th, .leaderboard-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .leaderboard-table th {
+            background-color: var(--card-bg);
+            font-weight: 600;
+        }
+        
+        .leaderboard-table tr:hover {
+            background-color: rgba(99, 102, 241, 0.1);
+        }
+        
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--border-color);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .challenges {
+                grid-template-columns: 1fr;
+            }
+            
+            body {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DegroCTF 2024-2025</h1>
+        <p class="info">Challenges ordered from hardest to easiest</p>
+        <p class="info">All tasks can be characterized to some degree by <em>utsutsugami</em></p>
+    </header>
+    
+    <main>
+        <div class="challenges">
+            <div class="challenge-card">
+                <div class="challenge-header">
+                    <div class="challenge-title">
+                        <span class="difficulty difficulty-4">[****]</span>
+                        D3GR 4LL-A: Uwutism Action
+                    </div>
+                    <span class="challenge-category">Rev 500</span>
+                </div>
+                <div class="challenge-meta">
+                    <div class="author">Author: ninefid</div>
+                    <div class="status">[x|x|_]</div>
+                </div>
+                <div class="challenge-description">Кажется, у вас имеется проблема с варонавыком
+
+<a href="d3gr4lla/d3gr4lla">d3gr4lla</a> (elf binary)</div>
+                <div class="status-badges">
+                    <div class="status-badge badge-working">Working ✓</div>
+                    <div class="status-badge badge-working">Tested ✓</div>
+                    <div class="status-badge badge-pending">No solves yet</div>
+                </div>
+                <div id="first-blood-d3gr4lla" class="first-blood"></div>
+            </div>
+
+            <div class="challenge-card">
+                <div class="challenge-header">
+                    <div class="challenge-title">
+                        <span class="difficulty difficulty-3">[***.]</span>
+                        loudy fish
+                    </div>
+                    <span class="challenge-category">PPC 400</span>
+                </div>
+                <div class="challenge-meta">
+                    <div class="author">Author: lukramancer</div>
+                    <div class="status">[x|0|_]</div>
+                </div>
+                <div class="challenge-description">Here's a fish on the line and it is screaming for some times. Understand what it is saying.
+
+<pre>nc ipaddr port</pre></div>
+                <div class="status-badges">
+                    <div class="status-badge badge-working">Working ✓</div>
+                    <div class="status-badge badge-not-working">Not tested ✗</div>
+                    <div class="status-badge badge-pending">No solves yet</div>
+                </div>
+                <div id="first-blood-loudy-fish" class="first-blood"></div>
+            </div>
+
+            <div class="challenge-card">
+                <div class="challenge-header">
+                    <div class="challenge-title">
+                        <span class="difficulty difficulty-2">[**..]</span>
+                        Gorbusha in rc Shell
+                    </div>
+                    <span class="challenge-category">CTB 300</span>
+                </div>
+                <div class="challenge-meta">
+                    <div class="author">Author: ninefid</div>
+                    <div class="status">[x|x|_]</div>
+                </div>
+                <div class="challenge-description">Попадите в Section 9, выберитесь, и найдите флаг
+
+<pre>nc ipaddr port</pre>
+
+// Контейнер у вас один на всех, просьба не ломать (я могу его спокойно перезапустить, но надеюсь вы придумаете взаимодействие повеселее окирпичивания)</div>
+                <div class="status-badges">
+                    <div class="status-badge badge-working">Working ✓</div>
+                    <div class="status-badge badge-working">Tested ✓</div>
+                    <div class="status-badge badge-pending">No solves yet</div>
+                </div>
+                <div id="first-blood-gorbusha" class="first-blood"></div>
+            </div>
+
+            <div class="challenge-card">
+                <div class="challenge-header">
+                    <div class="challenge-title">
+                        <span class="difficulty difficulty-1">[*...]</span>
+                        СЫР-8 был ошибкой
+                    </div>
+                    <span class="challenge-category">Stega 200</span>
+                </div>
+                <div class="challenge-meta">
+                    <div class="author">Author: ninefid</div>
+                    <div class="status">[x|x|_]</div>
+                </div>
+                <div class="challenge-description">🧀🍔󠅔󠅕󠅗󠅢󠅟󠅏󠅑󠅝󠅕󠅢󠅙󠅓󠅑󠅞󠅣󠅏󠅒󠅕󠅏󠅕󠅑󠅤󠅙󠅞󠅗󠅏󠅓󠅘󠅕󠅕󠅣󠅕󠅔󠅏󠅒󠅥󠅢󠅗󠅘󠅑󠅣</div>
+                <div class="status-badges">
+                    <div class="status-badge badge-working">Working ✓</div>
+                    <div class="status-badge badge-working">Tested ✓</div>
+                    <div class="status-badge badge-pending">No solves yet</div>
+                </div>
+                <div id="first-blood-cheese" class="first-blood"></div>
+            </div>
+
+            <div class="challenge-card">
+                <div class="challenge-header">
+                    <div class="challenge-title">
+                        <span class="difficulty difficulty-0">[....]</span>
+                        Негодяй
+                    </div>
+                    <span class="challenge-category">Foren 100</span>
+                </div>
+                <div class="challenge-meta">
+                    <div class="author">Author: ninefid</div>
+                    <div class="status">[x|x|_]</div>
+                </div>
+                <div class="challenge-description">Изучите представленные фотодоказательства:
+
+<a href="bastard/B58.png">B58.png</a></div>
+                <div class="status-badges">
+                    <div class="status-badge badge-working">Working ✓</div>
+                    <div class="status-badge badge-working">Tested ✓</div>
+                    <div class="status-badge badge-pending">No solves yet</div>
+                </div>
+                <div id="first-blood-bastard" class="first-blood"></div>
+            </div>
+        </div>
+        
+        <div class="leaderboard">
+            <h2 class="leaderboard-title">First Blood Leaderboard</h2>
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Challenge</th>
+                        <th>User</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>D3GR 4LL-A: Uwutism Action</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>loudy fish</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Gorbusha in rc Shell</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>СЫР-8 был ошибкой</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Негодяй</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    
+    <footer>
+        <p>DegroCTF 2024-2025 | Challenge status: [x|0|_] = [working/done/checked | tested/untested | solves]</p>
+    </footer>
+</body>
+</html>
