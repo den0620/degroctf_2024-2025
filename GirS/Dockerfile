@@ -17,9 +17,7 @@ RUN cp /bin/pwd /usr/lib/plan9/bin/pwd
 RUN cp /lib/ld-musl-x86_64.so.1 /usr/lib/plan9/lib/ld-musl-x86_64.so.1
 
 RUN mkdir -p /usr/lib/plan9/usr/ghost
-#RUN echo """ \
-#/bin/9 rc -i \
-#""" > /usr/lib/plan9/starter.sh && chmod +x /usr/lib/plan9/starter.sh
+RUN echo "Тебе нужно покинуть это место" > /usr/lib/plan9/usr/ghost/NOTE.txt
 
 COPY START.sh /START.sh
 RUN chmod +x /START.sh
