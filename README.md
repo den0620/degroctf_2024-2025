@@ -129,7 +129,7 @@ https://emoji.paulbutler.org/?mode=decode
 
 `degro_americans_be_eating_cheesed_burghas`
 
-## [**..] Негодяй (Foren 100) [ninefid] [0|0|0]
+## [....] Негодяй (Foren 100) [ninefid] [0|0|0]
 
 Изучите представленные фотодоказательства:
 
