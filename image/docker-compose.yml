@@ -1,0 +1,11 @@
+services:
+  degroctb:
+    cap_add:
+      - SYS_ADMIN
+    security_opt:
+      - apparmor=unconfined  # This may be needed depending on your host setup
+    build: .
+    domainname: local
+    hostname: section9
+    ports:
+      - "564:564"

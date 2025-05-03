@@ -8,10 +8,9 @@
 
 В погоне за секретным рецептом ~крабсбургера~ вы ...
 
-### Сварить из энергетиков ульту и получить за это флаг
-//### Зареверсить прогу для паверписи для плана 9
+Сварить из энергетиков ульту и получить за это флаг
 
-Микро версию вальхаллы с минимальным функционалом на [чарме](https://github.com/charmbracelet/bubbletea)
+### Решение:
 
 Доступные тяги:
 
@@ -22,8 +21,6 @@
 Секретный Рецепт:
 
 4/0/1/0/5
-
-### Решение:
 
 Увидеть что отказ выглядит как `That's not what I wanted`
 
@@ -49,11 +46,15 @@
     runtime_concatstring2(0,"Perfect! ",9,&local_29f2,0x2a);
 ```
 
-Даже клод соннет справится чтобы преобразовать это во флаг:
+Клод Соннет смог преобразовать это во флаг:
 
 `degro_yk_wo_they_do_2_guys_like_us_in_s3sc`
 
 ## [***.] loudy fish (PPC 400) [lukramancer]
+
+Here's a fish on the line and it is screaming for some times. Understand what it is saying.
+
+### Решение:
 
 Кричащая рыба:
 
@@ -74,11 +75,37 @@
                     <0)))><
 ```
 
-morse_state меняется между `SCREAMING` и `/SILENCE/`
+`morse_state` меняется между `SCREAMING` и `/SILENCE/`
 
 Я без понятия как там у него сделано dot/dash, но работает
 
-`DEGRO FISH SPEAK UPTO YOU` -> `degro_fish_speak_upto_you`
+`DEGRO FISH SPEAK UPTO YOU , ` (повтор) -> `degro_fish_speak_upto_you`
+
+## [**..] Gorbusha in rc Shell (CTB 300) [ninefid]
+
+Попадите в Section 9, выберитесь, и найдите флаг
+
+```shell
+nc ip port
+```
+
+### Решение:
+
+Алпайн контейнер, подключение к сокату который выдает `chroot` в /usr/lib/plan9 (пакет `plan9port`), но в котором есть `/dev` и `/proc` контейнера
+
+Чрут запускает `/bin/rc -i`
+
+В `/dev`, вероятно, ничего интересного нет (постарался как мог и вроде бы не допустил docker escape)
+
+А вот в `/proc` находятся процессы алпайн-контейнера из которого был выполнен сокат чрут (PID 1)
+
+```shell
+cd /proc/1/root
+```
+
+И мы попадаем в / уже алпайна, где есть /flag.txt
+
+`degro_`
 
 ## [**..] Негодяй (Stega 300) [ninefid]
 

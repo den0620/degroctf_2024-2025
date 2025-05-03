@@ -66,7 +66,7 @@ class FishyServer(ForkingTCPServer):
 
 
 if __name__ == "__main__":
-    HOST, PORT = "127.0.0.1", 9998
+    HOST, PORT = "0.0.0.0", 9998
 
     with FishyServer((HOST, PORT), FLAG_PROMPT, FLAG_REPEAT_PROMPT, delay=0.05) as server:
         try:
