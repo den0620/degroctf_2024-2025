@@ -22,6 +22,6 @@ RUN echo "Тебе нужно покинуть это место" > /usr/lib/pla
 COPY START.sh /START.sh
 RUN chmod +x /START.sh
 
-EXPOSE 564
+EXPOSE 3564
 
 CMD ["/START.sh"]
