@@ -11,5 +11,5 @@ export PATH=/bin:/usr
 export PLAN9=/
 
 #socat TCP-LISTEN:564,fork,reuseaddr EXEC:"/usr/lib/plan9/bin/9 rc -i",chdir=/usr/lib/plan9,setuid=ghost,stderr
-/usr/bin/socat TCP-LISTEN:3564,fork,reuseaddr EXEC:"/usr/sbin/chroot /usr/lib/plan9 /bin/rc -i",chdir=/usr/lib/plan9,stderr
+/usr/bin/socat TCP-LISTEN:3564,fork,reuseaddr EXEC:"/usr/sbin/chroot /usr/lib/plan9 /bin/rc -i",chdir=/usr/lib/plan9/usr/ghost,stderr
 
