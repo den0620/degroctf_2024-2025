@@ -4,7 +4,7 @@
 
 ### Все таски могут быть в разной мере охарактеризованы *уцуцугами*
 
-## [****] D3GR 4LL-A: Uwutism Action (Rev 500) [ninefid] [x|x|_]
+## `[****] D3GR 4LL-A: Uwutism Action (Rev 500) [ninefid] [x|x|x]`
 
 Кажется, у вас имеется проблема с варонавыком
 
@@ -50,7 +50,7 @@
 
 `degro_yk_wo_they_do_2_guys_like_us_in_s3sc`
 
-## [***.] loudy fish (PPC 400) [lukramancer] [x|_|_]
+## `[***.] loudy fish (PPC 400) [lukramancer] [x|x|x]`
 
 Here's a fish on the line and it is screaming for some times. Understand what it is saying.
 
@@ -83,7 +83,7 @@ nc ipaddr port
 
 Авторский солвер (на общей либе) [solve.py](loudyfish/solve.py)
 
-## [**..] Gorbusha in rc Shell (CTB 300) [ninefid] [x|x|_]
+## `[**..] Gorbusha in rc Shell (CTB 300) [ninefid] [x|x|x]`
 
 Попадите в Section 9, выберитесь, и найдите флаг
 
@@ -117,7 +117,7 @@ cd /proc/1/root
 
 [START.sh](GirS/START.sh)
 
-## [*...] СЫР-8 был ошибкой (Stega 200) [ninefid] [x|x|_]
+## `[*...] СЫР-8 был ошибкой (Stega 200) [ninefid] [x|x|x]`
 
 `🧀🍔󠅔󠅕󠅗󠅢󠅟󠅏󠅑󠅝󠅕󠅢󠅙󠅓󠅑󠅞󠅣󠅏󠅒󠅕󠅏󠅕󠅑󠅤󠅙󠅞󠅗󠅏󠅓󠅘󠅕󠅕󠅣󠅕󠅔󠅏󠅒󠅥󠅢󠅗󠅘󠅑󠅣`
 
@@ -129,7 +129,7 @@ https://emoji.paulbutler.org/?mode=decode
 
 `degro_americans_be_eating_cheesed_burghas`
 
-## [....] Негодяй (Foren 100) [ninefid] [0|0|0]
+## `[....] Негодяй (Foren 100) [ninefid] [x|x|x]`
 
 Изучите представленные фотодоказательства:
 
