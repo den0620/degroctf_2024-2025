@@ -81,7 +81,9 @@ nc ipaddr port
 
 Сервер [task.py](loudyfish/task.py)
 
-Авторский солвер (на общей либе) [solve.py](loudyfish/solve.py)
+Авторский солвер (на общей либе) [solver2.py](loudyfish/solver2.py)
+
+В задании изначально была ошибка с буквой "P", поэтому пришлось менять код
 
 ## `[**..] Gorbusha in rc Shell (CTB 300) [ninefid] [x|x|x]`
 
